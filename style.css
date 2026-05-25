@@ -1,1 +1,238 @@
+/* Configurações Globais e Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+:root {
+    --primary-color: #2e7d32; /* Verde folhas */
+    --secondary-color: #8d6e63; /* Tom de terra/marrom claro */
+    --dark-color: #3e2723; /* Marrom escuro */
+    --light-bg: #f5f5f5;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--white);
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    color: var(--dark-color);
+    font-size: 1.5rem;
+}
+
+header h1 span {
+    color: var(--primary-color);
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Seção Hero (Banner Principal) */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #1b5e20;
+}
+
+/* Seções de Conteúdo (Texto + Imagem) */
+.content-section {
+    padding: 80px 0;
+}
+
+.alternate-bg {
+    background-color: var(--light-bg);
+}
+
+.grids {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.text-content h2 {
+    color: var(--dark-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.text-content p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.text-content ul {
+    list-style-position: inside;
+    margin-bottom: 20px;
+}
+
+.text-content ul li {
+    margin-bottom: 8px;
+}
+
+/* Ajuste nos blocos de Imagem */
+.image-content img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Seção de Cards (Destaques) */
+.cards-section {
+    padding: 80px 0;
+    background-color: #f0f4f1;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--dark-color);
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+    border-top: 4px solid var(--secondary-color);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--dark-color);
+    margin-bottom: 12px;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--dark-color);
+    color: #ccc;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+/* Responsividade para Telas Menores (Celulares) */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .grids {
+        grid-template-columns: 1fr;
+    }
+    
+    .reverse {
+        direction: rtl; /* Inverte a ordem no mobile para o texto vir antes da imagem */
+    }
+    .reverse * {
+        direction: ltr; /* Restaura a direção do texto de leitura */
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
